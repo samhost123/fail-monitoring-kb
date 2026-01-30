@@ -1,28 +1,38 @@
-# Fail Monitoring Knowledge Base - Copilot Context
+# COPILOT INSTRUCTIONS
 
-## Project Overview
-This knowledge base documents the fail monitoring system for securities settlement operations.
+## RULES - READ THESE FIRST
+- NO essays. NO walls of text.
+- Maximum 10 bullet points per response
+- NO introductions like "Great question!" or "Sure, I can help with that!"
+- NO summaries at the end
+- NO repeating what I just said back to me
+- If I ask for a list, give me a list. Not paragraphs.
+- If I ask a yes/no question, start with yes or no.
+- Use code blocks for any structured output
+- When unsure, ask ONE clarifying question. Not five.
+- DO NOT explain concepts I already know - assume I understand the domain
 
-## How to Use This Repository
-1. Start each Copilot session by referencing this file
-2. Check `_GLOSSARY.md` for domain-specific terminology
-3. Review `_SESSION_LOG.md` for recent changes and context
-4. Navigate to specific folders for detailed documentation
+## PROJECT CONTEXT
+DVP/RVP fail monitoring for correspondent clearing (DTC only).
 
-## Key Concepts
-- **Fail**: A trade that did not settle on the expected settlement date
-- **Reg SHO**: SEC regulation governing short sales and fail-to-delivers
-- **CNS**: Continuous Net Settlement system operated by NSCC
+Business: We clear for market makers/execution brokers. We manage their settlement. Fails happen when counterparties don't deliver on time. Our delivers depend on receives (chains). Reg SHO has deadlines.
 
-## Repository Structure
-- `/01-data-model/` - Data sources, entity relationships, fail lifecycle
-- `/02-business-rules/` - Prioritization logic, regulatory timelines, offset matching
-- `/03-decision-trees/` - Triage workflows and escalation paths
-- `/04-sessions/` - Copilot session logs and conversation history
+## KEY TERMS (don't explain these)
+- DVP/RVP: Delivery/Receive vs Payment
+- CNS: Not in scope
+- Affirmation: Trade matching status
+- Fail: Missed settlement date
+- Correspondent: Client broker we clear for
 
-## Context for AI Assistants
-When working in this codebase:
-- Always check the glossary for unfamiliar terms
-- Reference the session log to understand recent changes
-- Follow established patterns in decision trees
-- Maintain consistency with existing business rules
+## CURRENT FOCUS
+Working on: _______________
+Reference: [[filename]]
+
+## OUTPUT FORMAT
+- Obsidian markdown
+- [[wiki links]] for references
+- Tables over paragraphs
+- Callouts: > [!note] or > [!warning]
+
+## IF YOU START RAMBLING
+Stop. Use a table. Or bullets. Or a code block.
