@@ -30,21 +30,14 @@ SEC Rule 15c3-1 capital deductions for aged settlement failures. Can force busin
 ## Timeline Visualization
 
 ```mermaid
-gantt
-    title Rule 15c3-1 Aged Fail Timeline
-    dateFormat X
-    axisFormat Day %d
+flowchart LR
+    S["S<br/>Settlement"] --> G["S+1 to S+4<br/>Grace Period"] --> H15["S+5 to S+7<br/>15% Haircut"] --> H25["S+8 to S+14<br/>25% Haircut"] --> H100["S+21+<br/>100% Haircut"]
 
-    section Settlement
-    Settlement Date (S)     :s, 0, 1d
-
-    section Grace Period
-    Days 1-4               :g, 1, 4d
-
-    section Deductions
-    15% Haircut (S+5-7)    :active, 5, 3d
-    25% Haircut (S+8-14)   :active, 8, 7d
-    100% Haircut (S+21+)   :crit, 21, 5d
+    style S fill:#c8e6c9
+    style G fill:#e8f5e9
+    style H15 fill:#fff3e0
+    style H25 fill:#ffcdd2
+    style H100 fill:#b71c1c,color:#fff
 ```
 
 ---

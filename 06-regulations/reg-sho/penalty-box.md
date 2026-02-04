@@ -69,11 +69,18 @@ flowchart TD
 ## Cost Impact
 
 ```mermaid
-xychart-beta
-    title "Borrow Cost: Locate vs Pre-Borrow (HTB)"
-    x-axis ["Easy to Borrow", "General Collateral", "Hard to Borrow", "Very HTB"]
-    y-axis "Annualized Rate %" 0 --> 100
-    bar [0.5, 2, 25, 100]
+flowchart LR
+    ETB["Easy to Borrow<br/>~0.5%"]
+    GC["General Collateral<br/>~2%"]
+    HTB["Hard to Borrow<br/>10-25%"]
+    VHTB["Very HTB<br/>50-100%+"]
+
+    ETB --> GC --> HTB --> VHTB
+
+    style ETB fill:#c8e6c9
+    style GC fill:#fff3e0
+    style HTB fill:#ffcdd2
+    style VHTB fill:#b71c1c,color:#fff
 ```
 
 | Security Type | Locate Rate | Pre-Borrow Rate |

@@ -140,22 +140,31 @@ See [[buy-in-mechanics]] for bilateral process:
 ## Compliance Timelines
 
 ```mermaid
-gantt
-    title Regulatory Deadlines from Settlement Date (S)
-    dateFormat X
-    axisFormat %d
+flowchart LR
+    subgraph REGSHO["Reg SHO"]
+        RS1["S+1<br/>Short Close-Out"]
+        RS3["S+3<br/>Long Close-Out"]
+    end
 
-    section Reg SHO
-    Short Close-Out    :crit, 0, 1d
-    Long Close-Out     :crit, 0, 3d
+    subgraph CAPITAL["Rule 15c3-1"]
+        C5["S+5<br/>Haircut Begins"]
+        C14["S+14<br/>25% Haircut"]
+        C21["S+21<br/>100% Haircut"]
+    end
 
-    section Rule 15c3-1
-    Haircut Begins     :active, 4, 1d
-    25% Haircut        :active, 13, 1d
-    100% Haircut       :crit, 20, 1d
+    subgraph THRESH["Threshold"]
+        T13["S+13<br/>Mandatory Purchase"]
+    end
 
-    section Threshold
-    Mandatory Purchase :crit, 12, 1d
+    RS1 --> RS3
+    C5 --> C14 --> C21
+
+    style RS1 fill:#ffcdd2
+    style RS3 fill:#ffcdd2
+    style C5 fill:#fff3e0
+    style C14 fill:#ffcdd2
+    style C21 fill:#b71c1c,color:#fff
+    style T13 fill:#ffcdd2
 ```
 
 ---

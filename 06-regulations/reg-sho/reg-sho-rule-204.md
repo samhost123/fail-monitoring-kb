@@ -19,26 +19,23 @@ SEC mandatory close-out requirements for settlement failures. Delivery-centric m
 ## Close-Out Matrix
 
 ```mermaid
-gantt
-    title Close-Out Deadlines (T+1 Settlement)
-    dateFormat X
-    axisFormat Day %d
+flowchart LR
+    subgraph SHORT["Short Sale (S+1 Close-Out)"]
+        T1["T<br/>Trade"] --> S1["T+1 (S)<br/>Settlement"] --> C1["S+1<br/>Close-Out"]
+    end
 
-    section Short Sale
-    Trade (T)           :t1, 0, 1d
-    Settlement (S=T+1)  :s1, 1, 1d
-    Close-Out Deadline  :crit, c1, 2, 1d
+    subgraph LONG["Long Sale (S+3 Close-Out)"]
+        T2["T<br/>Trade"] --> S2["T+1 (S)<br/>Settlement"] --> G2["S+1 to S+2<br/>Grace"] --> C2["S+3<br/>Close-Out"]
+    end
 
-    section Long Sale
-    Trade (T)           :t2, 0, 1d
-    Settlement (S=T+1)  :s2, 1, 1d
-    Grace Period        :g2, 2, 2d
-    Close-Out Deadline  :crit, c2, 4, 1d
+    subgraph THRESH["Threshold Security (S+13)"]
+        S3["S<br/>Settlement"] --> TH["S+1 to S+12<br/>Consecutive Days"] --> MP["S+13<br/>Mandatory Purchase"]
+    end
 
-    section Threshold
-    Settlement (S)      :s3, 1, 1d
-    13 Consecutive Days :active, th, 1, 13d
-    Mandatory Purchase  :crit, mp, 14, 1d
+    style C1 fill:#ffcdd2
+    style C2 fill:#ffcdd2
+    style TH fill:#bbdefb
+    style MP fill:#ffcdd2
 ```
 
 | Position Type | Deadline | Timing | Failure Result |

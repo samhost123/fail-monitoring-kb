@@ -29,24 +29,23 @@ Quick reference for all Reg SHO close-out deadlines.
 ## Visual Timeline
 
 ```mermaid
-gantt
-    title Close-Out Deadlines from Settlement Date
-    dateFormat X
-    axisFormat Day %d
+flowchart LR
+    subgraph SHORT["Short Sale"]
+        SS["S"] --> S1["S+1<br/>Close-Out"]
+    end
 
-    section Short Sale
-    Settlement     :s1, 0, 1d
-    Close-Out      :crit, 1, 1d
+    subgraph LONG["Long Sale"]
+        LS["S"] --> G["S+1 to S+2<br/>Grace"] --> L3["S+3<br/>Close-Out"]
+    end
 
-    section Long Sale
-    Settlement     :s2, 0, 1d
-    Grace          :g2, 1, 2d
-    Close-Out      :crit, 3, 1d
+    subgraph THRESH["Threshold Security"]
+        TS["S"] --> TC["S+1 to S+12<br/>Consecutive"] --> T13["S+13<br/>Purchase"]
+    end
 
-    section Threshold
-    Settlement     :s3, 0, 1d
-    Consecutive    :active, 1, 12d
-    Purchase       :crit, 13, 1d
+    style S1 fill:#ffcdd2
+    style L3 fill:#ffcdd2
+    style TC fill:#bbdefb
+    style T13 fill:#ffcdd2
 ```
 
 ---

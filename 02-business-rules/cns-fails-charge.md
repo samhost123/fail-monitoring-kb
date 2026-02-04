@@ -19,11 +19,13 @@ Duration-based penalty charged to failing members. 2025 revision eliminated CRRM
 ## Charge Schedule
 
 ```mermaid
-xychart-beta
-    title "CNS Fails Charge by Age (% of CMV)"
-    x-axis [Day 1, Day 5, Day 10, Day 15, Day 20, Day 21+]
-    y-axis "Charge %" 0 --> 100
-    line [5, 5, 15, 20, 20, 100]
+flowchart LR
+    D1["Days 1-4<br/>5%"] --> D5["Days 5-10<br/>15%"] --> D11["Days 11-20<br/>20%"] --> D21["Days 21+<br/>100%"]
+
+    style D1 fill:#c8e6c9
+    style D5 fill:#fff3e0
+    style D11 fill:#ffcdd2
+    style D21 fill:#b71c1c,color:#fff
 ```
 
 | Age (Days) | Rate | Example ($1M CMV) |

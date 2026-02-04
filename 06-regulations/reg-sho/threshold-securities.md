@@ -28,18 +28,26 @@ Securities with significant aggregate fail-to-deliver positions. Subject to mand
 ## 13-Day Rule
 
 ```mermaid
-gantt
-    title Threshold Security Close-Out
-    dateFormat X
-    axisFormat Day %d
+flowchart LR
+    subgraph STANDARD["Standard Close-Out"]
+        S1["S<br/>Settlement"]
+        S2["S+1<br/>Short Close-Out"]
+        S3["S+3<br/>Long Close-Out"]
+    end
 
-    section Standard
-    Settlement (S)          :s, 0, 1d
-    Regular Close-Out       :r, 1, 3d
+    subgraph THRESHOLD["Threshold Security"]
+        T1["S<br/>Settlement"]
+        T2["S+1 to S+12<br/>Resolution Efforts"]
+        T3["S+13<br/>Mandatory Purchase"]
+    end
 
-    section Threshold
-    Consecutive Fail Days   :active, t, 1, 12d
-    Mandatory Purchase      :crit, m, 13, 1d
+    S1 --> S2 --> S3
+    T1 --> T2 --> T3
+
+    style S2 fill:#fff3e0
+    style S3 fill:#fff3e0
+    style T2 fill:#bbdefb
+    style T3 fill:#ffcdd2
 ```
 
 > [!danger] Mandatory Purchase
