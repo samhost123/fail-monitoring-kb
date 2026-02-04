@@ -13,16 +13,34 @@
 - DO NOT explain concepts I already know - assume I understand the domain
 
 ## PROJECT CONTEXT
-DVP/RVP fail monitoring for correspondent clearing (DTC only).
+Settlement fail monitoring and prioritization for correspondent clearing.
 
-Business: We clear for market makers/execution brokers. We manage their settlement. Fails happen when counterparties don't deliver on time. Our delivers depend on receives (chains). Reg SHO has deadlines.
+**Scope:** CNS, IMS, Obligation Warehouse, DTC bilateral
+**Business:** Clear for market makers/execution brokers. Manage settlement. Fails occur when counterparties don't deliver. Reg SHO has deadlines.
 
 ## KEY TERMS (don't explain these)
 - DVP/RVP: Delivery/Receive vs Payment
-- CNS: Not in scope
+- CNS: Continuous Net Settlement (NSCC)
+- IMS: Inventory Management System (DTC)
+- OW: Obligation Warehouse
+- Novation: CCP transformation
+- Netting: Gross-to-net reduction
+- Priority Groups: CNS allocation hierarchy (1-4)
 - Affirmation: Trade matching status
 - Fail: Missed settlement date
 - Correspondent: Client broker we clear for
+
+## FOLDER STRUCTURE
+```
+00-index/       → Navigation hub, MOCs
+01-data-model/  → Entities, data sources
+02-business-rules/ → Prioritization, Reg SHO, offsets
+03-decision-trees/ → Triage, escalation, lifecycle
+04-sessions/    → Meeting notes
+05-systems/     → CNS, IMS, OW documentation
+06-regulations/ → Reg SHO, Rule 15c3-1
+07-reference/   → Timelines, formulas, codes
+```
 
 ## CURRENT FOCUS
 Working on: _______________
@@ -33,6 +51,7 @@ Reference: [[filename]]
 - [[wiki links]] for references
 - Tables over paragraphs
 - Callouts: > [!note] or > [!warning]
+- Mermaid diagrams for workflows
 
 ## IF YOU START RAMBLING
 Stop. Use a table. Or bullets. Or a code block.
