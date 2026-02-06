@@ -80,6 +80,9 @@ graph LR
 
 ## Reference
 
+### Copilot Prompts
+- [[copilot-prompts]] - 13 step-by-step prompts for fail resolution
+
 ### Quick Lookup
 - [[t1-critical-deadlines]] - Cutoff times
 - [[close-out-matrix]] - S+1/S+3/S+13 deadlines
